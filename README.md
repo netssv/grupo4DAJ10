@@ -86,7 +86,7 @@ c:/ventas_ecommerce/
 6. `venta_detalle`: Detalles de ventas
 
 ### Diagrama Entidad-Relación
-
+![Diagrama ER](https://raw.githubusercontent.com/netssv/grupo4DAJ10/refs/heads/main/diagrama_er.jpeg)
 ##### Modelo SNOWFLAKE
 Optimizando la base de datos , donde las tablas
 se normalizan para reducir la redundancia y permite la escalabilidad de acuerdo a las exigencias del negocio.
