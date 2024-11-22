@@ -87,8 +87,7 @@ c:/ventas_ecommerce/
 
 ### Diagrama Entidad-Relación
 ##### Modelo SNOWFLAKE
-Optimizando la base de datos , donde las tablas
-se normalizan para reducir la redundancia y permite la escalabilidad de acuerdo a las exigencias del negocio.
+Optimizando la base de datos , donde las tablas se normalizan para reducir la redundancia y permite la escalabilidad de acuerdo a los intereses del negocio.
 ![Diagrama ER](https://raw.githubusercontent.com/netssv/grupo4DAJ10/refs/heads/main/diagrama_er.jpeg)
 ## 🚀 Implementación
 
