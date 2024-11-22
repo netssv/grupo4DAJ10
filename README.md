@@ -23,10 +23,11 @@ Sistema integral de gestión de datos transaccionales desarrollado con PostgreSQ
 - Permisos de administrador/superusuario en la base de datos
 
 ### Archivos Requeridos
-- `clientes.csv`
-- `productos.csv`
-- `ventas.csv`
-- `scripts`
+Ubicación recomendada: `c:/ventas_ecommerce/`
+- `clientes.csv` (UTF-8, delimitado por comas)
+- `productos.csv` (UTF-8, delimitado por comas)
+- `ventas.csv` (UTF-8, delimitado por comas)
+- Carpeta `scripts/` con archivos SQL
 
 ## 🔧 Configuración del Entorno
 
