@@ -187,10 +187,10 @@ order by ventas_totales desc;
 
 | Nombre            | Correo                    |Carnet   | 
 |-------------------|---------------------------|---------|
-| Barrientos Sandra | sgbarrientos@gmail.com    |k00002692|
-| Herrera Elizabeth | e.libe59@gmail.com        |K00002712|
-| Martel Rodrigo    | rop.martel@gmail.com      |k00002721|
-| Rivera Edwin      | edigrica@gmail.com        |k00002715|
+| Barrientos Sandra | sgbarrientos[at]gmail.com    |k00002692|
+| Herrera Elizabeth | e.libe59[at]gmail.com        |K00002712|
+| Martel Rodrigo    | rop.martel[at]gmail.com      |k00002721|
+| Rivera Edwin      | edigrica[at]gmail.com        |k00002715|
 
 ##### Fecha de creación: Jueves 21 de noviembre de 2024
 
