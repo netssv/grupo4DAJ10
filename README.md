@@ -33,22 +33,31 @@ Sistema integral de gestión de datos transaccionales desarrollado con PostgreSQ
 ### 1. Preparación del Entorno de Base de Datos
 
 #### Pasos de Instalación
+#### Windows
+1. Descargar PostgreSQL 16.1 desde [postgresql.org](https://www.postgresql.org/download/windows/)
+2. Ejecutar el instalador con opciones predeterminadas
+3. Anotar la contraseña del usuario postgres
+4. Verificar instalación:
 ```bash
-# Ejemplo para sistemas Linux/Ubuntu
-sudo apt-get update
-sudo apt-get install postgresql
-sudo -u postgres psql
+psql --version
 ```
-```bash
-# Ejemplo para sistemas Windows
 
-Descargar la version mas reciete de Postgre
-Instalar la aplicacion 
+#### Ubuntu
+```bash
+# Actualizar repositorios
+sudo apt update
+
+# Instalar PostgreSQL
+sudo apt install postgresql-16 postgresql-contrib-16
+
+# Verificar instalación
+psql --version
 ```
 
 
 #### Creación de Base de Datos
 ```sql
+Ejemplo del script 01_crear_tablas.sql
 -- Crear base de datos
 CREATE DATABASE ventas_ecommerce;
 
@@ -87,6 +96,10 @@ c:/ventas_ecommerce/
 
 ### Diagrama Entidad-Relación
 ##### Modelo SNOWFLAKE
+Primera versión del modelo de datos que implementa:
+- Reducción de redundancia
+- Preparación para escalabilidad
+
 Optimizando la base de datos , donde las tablas se normalizan para reducir la redundancia y permite la escalabilidad de acuerdo a los intereses del negocio.
 ![Diagrama ER](https://raw.githubusercontent.com/netssv/grupo4DAJ10/refs/heads/main/diagrama_er.jpeg)
 ## 🚀 Implementación
