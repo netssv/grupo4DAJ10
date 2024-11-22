@@ -90,7 +90,7 @@ c:/ventas_ecommerce/
 ##### Modelo SNOWFLAKE
 Optimizando la base de datos , donde las tablas
 se normalizan para reducir la redundancia y permite la escalabilidad de acuerdo a las exigencias del negocio.
-
+![Diagrama ER](https://raw.githubusercontent.com/netssv/grupo4DAJ10/refs/heads/main/diagrama_er.jpeg)
 ## 🚀 Implementación
 
 ### Pasos de Instalación
@@ -167,12 +167,12 @@ order by ventas_totales desc;
 
 ## 📝 Autores
 
-| Nombre            | Correo                    |
-|-------------------|---------------------------|
-| Barrientos Sandra | sgbarrientos@gmail.com    |
-| Herrera Elizabeth | e.libe59@gmail.com        |
-| Martel Rodrigo    | rop.martel@gmail.com      |
-| Rivera Edwin      | edigrica@gmail.com        |
+| Nombre            | Correo                    |Carnet   | 
+|-------------------|---------------------------|---------|
+| Barrientos Sandra | sgbarrientos@gmail.com    |k00002692|
+| Herrera Elizabeth | e.libe59@gmail.com        |     |
+| Martel Rodrigo    | rop.martel@gmail.com      |k00002721|
+| Rivera Edwin      | edigrica@gmail.com        |k00002715|
 
 ##### Fecha de creación: Jueves 21 de noviembre de 2024
 
