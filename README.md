@@ -66,7 +66,7 @@ c:/ventas_ecommerce/
 ├─── ventas.csv
 │
 ├── scripts/
-│   ├── 01_proyecto.sql
+│   ├── 01_crear_tablas.sql
 │   ├── 02_importar_datos.sql
 │   └── 03_validacion_de_datos.sql
 │   └── 04_traslado_datos_a_tablas_modelo.sql
@@ -109,13 +109,19 @@ cd ventas_ecommerce
 3. Ejecutar Scripts SQL
 ```bash
 # Crear tablas
-psql -U usuario_proyecto -d ventas_ecommerce -f scripts/01_create_tables.sql
+\i scripts/01_crear_tablas.sql
 
 # Importar datos
-psql -U usuario_proyecto -d ventas_ecommerce -f scripts/02_import_data.sql
+\i scripts/02_importar_datos.sql
 
 # Validar datos
-psql -U usuario_proyecto -d ventas_ecommerce -f scripts/03_validate_data.sql
+\i scripts/03_validacion_de_datos.sql
+
+# Crear modelo Snowflake
+\i scripts/04_traslado_datos_a_tablas_modelo.sql
+
+# Consultas de ejemplo
+\i scripts/05_consultas_de_ejemplo.sql
 ```
 
 ## 🔍 Validaciones de Datos
