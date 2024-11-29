@@ -23,32 +23,42 @@ Sistema integral de gestión de datos transaccionales desarrollado con PostgreSQ
 - Permisos de administrador/superusuario en la base de datos
 
 ### Archivos Requeridos
-- `clientes.csv`
-- `productos.csv`
-- `ventas.csv`
-- `scripts`
+Ubicación recomendada: `c:/ventas_ecommerce/`
+- `clientes.csv` (UTF-8, delimitado por comas)
+- `productos.csv` (UTF-8, delimitado por comas)
+- `ventas.csv` (UTF-8, delimitado por comas)
+- Carpeta `scripts/` con archivos SQL
 
 ## 🔧 Configuración del Entorno
 
 ### 1. Preparación del Entorno de Base de Datos
 
 #### Pasos de Instalación
+#### Windows
+1. Descargar PostgreSQL 16.1 desde [postgresql.org](https://www.postgresql.org/download/windows/)
+2. Ejecutar el instalador con opciones predeterminadas
+3. Anotar la contraseña del usuario postgres
+4. Verificar instalación:
 ```bash
-# Ejemplo para sistemas Linux/Ubuntu
-sudo apt-get update
-sudo apt-get install postgresql
-sudo -u postgres psql
+psql --version
 ```
-```bash
-# Ejemplo para sistemas Windows
 
-Descargar la version mas reciete de Postgre
-Instalar la aplicacion 
+#### Ubuntu
+```bash
+# Actualizar repositorios
+sudo apt update
+
+# Instalar PostgreSQL
+sudo apt install postgresql-16 postgresql-contrib-16
+
+# Verificar instalación
+psql --version
 ```
 
 
 #### Creación de Base de Datos
 ```sql
+Ejemplo del script 01_crear_tablas.sql
 -- Crear base de datos
 CREATE DATABASE ventas_ecommerce;
 
@@ -66,7 +76,7 @@ c:/ventas_ecommerce/
 ├─── ventas.csv
 │
 ├── scripts/
-│   ├── 01_proyecto.sql
+│   ├── 01_crear_tablas.sql
 │   ├── 02_importar_datos.sql
 │   └── 03_validacion_de_datos.sql
 │   └── 04_traslado_datos_a_tablas_modelo.sql
@@ -87,6 +97,10 @@ c:/ventas_ecommerce/
 
 ### Diagrama Entidad-Relación
 ##### Modelo SNOWFLAKE
+Primera versión del modelo de datos que implementa:
+- Reducción de redundancia
+- Preparación para escalabilidad
+
 Optimizando la base de datos , donde las tablas se normalizan para reducir la redundancia y permite la escalabilidad de acuerdo a los intereses del negocio.
 ![Diagrama ER](https://raw.githubusercontent.com/netssv/grupo4DAJ10/refs/heads/main/diagrama_er.jpeg)
 ## 🚀 Implementación
@@ -109,13 +123,19 @@ cd ventas_ecommerce
 3. Ejecutar Scripts SQL
 ```bash
 # Crear tablas
-psql -U usuario_proyecto -d ventas_ecommerce -f scripts/01_create_tables.sql
+\i scripts/01_crear_tablas.sql
 
 # Importar datos
-psql -U usuario_proyecto -d ventas_ecommerce -f scripts/02_import_data.sql
+\i scripts/02_importar_datos.sql
 
 # Validar datos
-psql -U usuario_proyecto -d ventas_ecommerce -f scripts/03_validate_data.sql
+\i scripts/03_validacion_de_datos.sql
+
+# Crear modelo Snowflake
+\i scripts/04_traslado_datos_a_tablas_modelo.sql
+
+# Consultas de ejemplo
+\i scripts/05_consultas_de_ejemplo.sql
 ```
 
 ## 🔍 Validaciones de Datos
@@ -167,10 +187,10 @@ order by ventas_totales desc;
 
 | Nombre            | Correo                    |Carnet   | 
 |-------------------|---------------------------|---------|
-| Barrientos Sandra | sgbarrientos@gmail.com    |k00002692|
-| Herrera Elizabeth | e.libe59@gmail.com        |     |
-| Martel Rodrigo    | rop.martel@gmail.com      |k00002721|
-| Rivera Edwin      | edigrica@gmail.com        |k00002715|
+| Barrientos Sandra | sgbarrientos[at]gmail.com    |k00002692|
+| Herrera Elizabeth | e.libe59[at]gmail.com        |K00002712|
+| Martel Rodrigo    | rop.martel[at]gmail.com      |k00002721|
+| Rivera Edwin      | edigrica[at]gmail.com        |k00002715|
 
 ##### Fecha de creación: Jueves 21 de noviembre de 2024
 
