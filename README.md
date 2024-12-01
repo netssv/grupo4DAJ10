@@ -102,7 +102,7 @@ Primera versión del modelo de datos que implementa:
 - Preparación para escalabilidad
 
 Optimizando la base de datos , donde las tablas se normalizan para reducir la redundancia y permite la escalabilidad de acuerdo a los intereses del negocio.
-![Diagrama ER](https://raw.githubusercontent.com/netssv/grupo4DAJ10/refs/heads/main/diagrama_er.jpeg)
+![Diagrama ER](https://raw.githubusercontent.com/netssv/grupo4DAJ10/refs/heads/main/img/diagrama_er.jpeg)
 ## 🚀 Implementación
 
 ### Pasos de Instalación
