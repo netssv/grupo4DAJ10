@@ -98,8 +98,8 @@ c:/ventas_ecommerce/
 │   └── 05_consultas_de_ejemplo.sql
 │
 ├── notebooks/
-│   ├── 01_analisis_exploratorio.ipynb
-│   └── 02_visualizaciones.ipynb
+│   └── 01_analisis_exploratorio.ipynb
+│   
 │
 ├── powerbi/
 │   └── dashboard_ventas.pbix
