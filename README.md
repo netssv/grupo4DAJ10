@@ -2,24 +2,28 @@
 
 ## 🎯 Descripción del Proyecto
 
-Sistema integral de gestión de datos transaccionales desarrollado con PostgreSQL, diseñado para analizar y procesar información de ventas, clientes, productos y regiones. El proyecto implementa un modelo de datos robusto que permite realizar análisis detallados y obtener insights empresariales.
+Sistema integral de gestión de datos transaccionales desarrollado con PostgreSQL, Python y Power BI, diseñado para analizar y procesar información de ventas, clientes, productos y regiones. El proyecto implementa un modelo de datos Snowflake que permite realizar análisis detallados y obtener insights empresariales.
 
 ## 🛠 Tecnologías y Herramientas
 
 - **Base de Datos**: PostgreSQL 16+ 
-- **Lenguaje**: SQL
+- **Lenguaje**: SQL, Python
 - **Herramientas de Apoyo**: 
   - pgAdmin
-  - Visual studio 
-  - Herramientas colaborativas en la nube
+  - Visual Studio Code
+  - Jupyter Notebook
+  - Power BI Desktop
+  - Git
   - Lucidchart
 
 ## 📋 Requisitos Previos
 
 ### Infraestructura Técnica
-- PostgreSQL instalado (versión 16 o superior)
-- Mínimo 8GB RAM
-- 10GB de espacio en disco
+- PostgreSQL 16+ instalado
+- Python 3.9+
+- Power BI Desktop
+- Mínimo 16GB RAM
+- 20GB de espacio en disco
 - Permisos de administrador/superusuario en la base de datos
 
 ### Archivos Requeridos
@@ -28,13 +32,13 @@ Ubicación recomendada: `c:/ventas_ecommerce/`
 - `productos.csv` (UTF-8, delimitado por comas)
 - `ventas.csv` (UTF-8, delimitado por comas)
 - Carpeta `scripts/` con archivos SQL
+- Carpeta `notebooks/` con análisis de Python
 
 ## 🔧 Configuración del Entorno
 
 ### 1. Preparación del Entorno de Base de Datos
 
-#### Pasos de Instalación
-#### Windows
+#### Pasos de Instalación para Windows
 1. Descargar PostgreSQL 16.1 desde [postgresql.org](https://www.postgresql.org/download/windows/)
 2. Ejecutar el instalador con opciones predeterminadas
 3. Anotar la contraseña del usuario postgres
@@ -43,7 +47,7 @@ Ubicación recomendada: `c:/ventas_ecommerce/`
 psql --version
 ```
 
-#### Ubuntu
+#### Pasos de Instalación para Ubuntu
 ```bash
 # Actualizar repositorios
 sudo apt update
@@ -55,10 +59,8 @@ sudo apt install postgresql-16 postgresql-contrib-16
 psql --version
 ```
 
-
 #### Creación de Base de Datos
 ```sql
-Ejemplo del script 01_crear_tablas.sql
 -- Crear base de datos
 CREATE DATABASE ventas_ecommerce;
 
@@ -67,20 +69,40 @@ CREATE USER usuario_proyecto WITH PASSWORD 'contraseña_segura';
 GRANT ALL PRIVILEGES ON DATABASE ventas_ecommerce TO usuario_proyecto;
 ```
 
-### 2. Estructura de Directorios Recomendada
+### 2. Configuración del Entorno de Python
+
+#### Instalación de Dependencias
+```bash
+# Crear entorno virtual (opcional pero recomendado)
+python -m venv ventas_env
+source ventas_env/bin/activate  # En Windows: ventas_env\Scripts\activate
+
+# Instalar librerías necesarias
+pip install pandas numpy matplotlib seaborn jupyter psycopg2 sqlalchemy
+```
+
+### 3. Estructura de Directorios Recomendada
 ```
 c:/ventas_ecommerce/
 │
-├─── clientes.csv
-├─── productos.csv
-├─── ventas.csv
+├── datos/
+│   ├── clientes.csv
+│   ├── productos.csv
+│   └── ventas.csv
 │
 ├── scripts/
 │   ├── 01_crear_tablas.sql
 │   ├── 02_importar_datos.sql
-│   └── 03_validacion_de_datos.sql
-│   └── 04_traslado_datos_a_tablas_modelo.sql
+│   ├── 03_validacion_de_datos.sql
+│   ├── 04_traslado_datos_a_tablas_modelo.sql
 │   └── 05_consultas_de_ejemplo.sql
+│
+├── notebooks/
+│   ├── 01_analisis_exploratorio.ipynb
+│   └── 02_visualizaciones.ipynb
+│
+├── powerbi/
+│   └── dashboard_ventas.pbix
 │
 └── README.md
 ```
@@ -95,32 +117,27 @@ c:/ventas_ecommerce/
 5. `venta`: Transacciones de ventas (tabla de hechos)
 6. `venta_detalle`: Detalles de ventas
 
-### Diagrama Entidad-Relación
-##### Modelo SNOWFLAKE
-Primera versión del modelo de datos que implementa:
+### Modelo Snowflake
 - Reducción de redundancia
 - Preparación para escalabilidad
+- Normalización hasta 3FN
 
-Optimizando la base de datos , donde las tablas se normalizan para reducir la redundancia y permite la escalabilidad de acuerdo a los intereses del negocio.
-![Diagrama ER](https://raw.githubusercontent.com/netssv/grupo4DAJ10/refs/heads/main/img/diagrama_er.jpeg)
 ## 🚀 Implementación
 
-### Pasos de Instalación
-
-1. Clonar Repositorio
+### 1. Clonar Repositorio
 ```bash
 git clone https://github.com/netssv/grupo4DAJ10
 cd ventas_ecommerce
 ```
 
-2. Configurar Archivos CSV
-- Ubicar archivos en `c:/ventas_ecommerce/` (recomendado)
+### 2. Configurar Archivos CSV
+- Ubicar archivos en `c:/ventas_ecommerce/datos/`
 - Verificar formato: 
   - Delimitador: Coma (,)
   - Encabezados: Sí
   - Codificación: UTF-8
 
-3. Ejecutar Scripts SQL
+### 3. Ejecutar Scripts SQL
 ```bash
 # Crear tablas
 \i scripts/01_crear_tablas.sql
@@ -138,9 +155,37 @@ cd ventas_ecommerce
 \i scripts/05_consultas_de_ejemplo.sql
 ```
 
+### 4. Análisis de Datos con Python
+
+#### Ejecutar Jupyter Notebook
+```bash
+# Iniciar Jupyter Notebook
+jupyter notebook notebooks/01_analisis_exploratorio.ipynb
+```
+
+### 5. Configuración de Power BI
+1. Abrir Power BI Desktop
+2. Conectar a la base de datos PostgreSQL
+3. Cargar datos desde las tablas creadas
+4. Crear medidas DAX
+5. Desarrollar visualizaciones en `powerbi/dashboard_ventas.pbix`
+
+## 📊 Análisis de Datos
+
+### Métricas Analizadas
+- Cantidad total de ventas
+- Monto total de ventas
+- Ventas por región
+- Ventas por categoría
+
+### Visualizaciones Generadas
+- Ventas totales por mes y año
+- Análisis trimestral de ventas
+- Ranking de productos
+- Segmentación de clientes
+
 ## 🔍 Validaciones de Datos
 
-El proyecto incluye scripts de validación que comprueban:
 - Valores nulos
 - Identificadores únicos
 - Dependencias
@@ -152,30 +197,19 @@ El proyecto incluye scripts de validación que comprueban:
 - Scripts parametrizables
 - Validación de datos
 - Uso de snake_case
-- Normalización de la data
+- Normalización de datos
 - Control de errores
 
-## 📊 Consultas de Ejemplo
+## 👥 Equipo de Desarrollo
 
-```sql
--- ventas totales por categoría de producto
-select c.nombre_categoria as "Categoría de producto", sum(vd.total) AS ventas_totales
-from venta_detalle vd
-join producto p on vd.producto_id = p.producto_id
-join categoria c on p.categoria_id = c.categoria_id
-group by c.nombre_categoria
-order by ventas_totales desc;
-```
+| Nombre            | Rol                | Correo                  | Carnet    |
+|------------------|---------------------|------------------------|-----------|
+| Barrientos Sandra| Líder de Datos      | sgbarrientos[at]gmail.com | k00002692 |
+| Herrera Elizabeth| Analista de Datos   | e.libe59[at]gmail.com  | K00002712 |
+| Martel Rodrigo   | Desarrollador       | rop.martel[at]gmail.com| k00002721 |
+| Rivera Edwin     | Documentación       | edigrica[at]gmail.com  | k00002715 |
 
-## 🔒 Seguridad
-
-- Credenciales protegidas.
-- Principio de mínimo privilegio.
-- Conexiones seguras.
-- Logs de auditoría en GitHub.
-- 
-
-## 👥 Contribución
+## 🆘 Soporte y Contribución
 
 1. Fork del repositorio
 2. Crear rama de feature (`git checkout -b feature/mejora`)
@@ -183,28 +217,16 @@ order by ventas_totales desc;
 4. Push a la rama (`git push origin feature/mejora`)
 5. Abrir Pull Request
 
-## 📝 Autores
-
-| Nombre            | Correo                    |Carnet   | 
-|-------------------|---------------------------|---------|
-| Barrientos Sandra | sgbarrientos[at]gmail.com    |k00002692|
-| Herrera Elizabeth | e.libe59[at]gmail.com        |K00002712|
-| Martel Rodrigo    | rop.martel[at]gmail.com      |k00002721|
-| Rivera Edwin      | edigrica[at]gmail.com        |k00002715|
-
-##### Fecha de creación: Jueves 21 de noviembre de 2024
-
 ## 📄 Licencia
-
-Proyecto bajo licencia MIT
-
-## 🆘 Soporte
-
-Para dudas o problemas:
-- Abrir un Issue en GitHub
-- Contactar al mantenedor del proyecto
+Proyecto bajo Licencia MIT
 
 ## 🔗 Referencias
 - Documentación PostgreSQL
-- Guías de mejores prácticas de SQL
-- Recursos de modelado de datos
+- Guías de mejores prácticas SQL
+- Documentación Pandas
+- Power BI Documentation
+
+---
+**Nota**: Segunda entrega del proyecto.
+
+Fecha de Creacion: 21 de noviembre de 2024
