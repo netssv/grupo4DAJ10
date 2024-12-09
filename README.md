@@ -85,10 +85,10 @@ pip install pandas numpy matplotlib seaborn jupyter psycopg2 sqlalchemy
 ```
 c:/ventas_ecommerce/
 │
-├── datos/
-│   ├── clientes.csv
-│   ├── productos.csv
-│   └── ventas.csv
+├──docs/
+│   ├── 01_consultas_de_prueba.pptx
+│   ├── 02_informe_analisis_ventas_insights.docx
+│   ├── 03_Informe_ventas_e_commerce.docs
 │
 ├── scripts/
 │   ├── 01_crear_tablas.sql
@@ -104,7 +104,10 @@ c:/ventas_ecommerce/
 ├── powerbi/
 │   └── dashboard_ventas.pbix
 │
-└── README.md
+├── README.md
+├── clientes.csv
+├── productos.csv
+└── ventas.csv
 ```
 
 ## 📦 Esquema de Base de Datos
