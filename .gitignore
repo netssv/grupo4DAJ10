@@ -1,2 +1,10 @@
 # Ignora los archivos de entorno
 .env
+# Ignora los documentos de editor
+*.docs
+*.docx
+*.doc
+*.odt
+*.ppt
+*.pptx
+*.pptm

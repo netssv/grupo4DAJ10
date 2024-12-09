@@ -86,9 +86,8 @@ pip install pandas numpy matplotlib seaborn jupyter psycopg2 sqlalchemy
 c:/ventas_ecommerce/
 │
 ├──docs/
-│   ├── 01_consultas_de_prueba.pptx
-│   ├── 02_informe_analisis_ventas_insights.docx
-│   ├── 03_Informe_ventas_e_commerce.docs
+│   ├── 01_consultas_de_prueba.pdf
+│   ├── 02_Informe_ventas_e_commerce.pdf
 │
 ├── scripts/
 │   ├── 01_crear_tablas.sql
